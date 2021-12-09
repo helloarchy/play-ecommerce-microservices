@@ -25,7 +25,7 @@ namespace Play.Catalog.Service.Controllers
         [HttpGet("{id}")]
         public ItemDto GetById(Guid id)
         {
-            var item = Items.Where(item => item.Id == id).SingleOrDefault();
+            var item = Items.SingleOrDefault(item => item.Id == id);
             return item;
         }
 
@@ -35,7 +35,27 @@ namespace Play.Catalog.Service.Controllers
             var item = new ItemDto(Guid.NewGuid(), createItemDto.Name, createItemDto.Description, createItemDto.Price,
                 DateTimeOffset.UtcNow);
             Items.Add(item);
-            return CreatedAtAction(nameof(GetById), new {id = item.Id}, item);
+            return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(Guid id, UpdateItemDto updateItemDto)
+        {
+            var existingItem = Items.SingleOrDefault(item => item.Id == id);
+            if (existingItem != null)
+            {
+                var updatedItem = existingItem with
+                {
+                    Name = updateItemDto.Name,
+                    Description = updateItemDto.Description,
+                    Price = updateItemDto.Price
+                };
+
+                var index = Items.FindIndex(item => item.Id == id);
+                Items[index] = updatedItem;
+            }
+
+            return NoContent();
         }
     }
 }
