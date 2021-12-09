@@ -16,12 +16,14 @@ namespace Play.Catalog.Service.Controllers
             new ItemDto(Guid.NewGuid(), "Bronze sword", "Deals a small amount of damage", 20, DateTimeOffset.UtcNow),
         };
 
+        // GET /items
         [HttpGet]
         public IEnumerable<ItemDto> Get()
         {
             return Items;
         }
 
+        // GET /items/{id}
         [HttpGet("{id}")]
         public ItemDto GetById(Guid id)
         {
@@ -29,6 +31,7 @@ namespace Play.Catalog.Service.Controllers
             return item;
         }
 
+        // POST /items
         [HttpPost]
         public ActionResult<ItemDto> Post(CreateItemDto createItemDto)
         {
@@ -38,6 +41,7 @@ namespace Play.Catalog.Service.Controllers
             return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
         }
 
+        // PUT /items/{id}
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, UpdateItemDto updateItemDto)
         {
@@ -54,6 +58,16 @@ namespace Play.Catalog.Service.Controllers
                 var index = Items.FindIndex(item => item.Id == id);
                 Items[index] = updatedItem;
             }
+
+            return NoContent();
+        }
+
+        // DELETE /items/{id}
+        [HttpDelete("{id}")]
+        public IActionResult Delete(Guid id)
+        {
+            var index = Items.FindIndex(item => item.Id == id);
+            Items.RemoveAt(index);
 
             return NoContent();
         }
