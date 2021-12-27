@@ -12,7 +12,12 @@ namespace Play.Catalog.Service.Controllers
     [Route("items")]
     public class ItemsController : ControllerBase
     {
-        private readonly ItemsRepository _itemsRepository = new();
+        private readonly IItemsRepository _itemsRepository;
+
+        public ItemsController(IItemsRepository itemsRepository)
+        {
+            _itemsRepository = itemsRepository;
+        }
 
         // GET /items
         [HttpGet]
@@ -50,6 +55,7 @@ namespace Play.Catalog.Service.Controllers
 
             await _itemsRepository.CreateAsync(item);
             
+            // ReSharper disable once Mvc.ActionNotResolved
             return CreatedAtAction(nameof(GetByIdAsync), new { id = item.Id }, item);
         }
 
