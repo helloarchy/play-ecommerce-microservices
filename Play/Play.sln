@@ -1,12 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Common", "Play.Common\Play.Common.csproj", "{11A1A594-B26C-4B96-900E-862D13129E50}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Play.Catalog", "Play.Catalog", "{8958A496-65B5-4DBD-A1AB-331CFA39CFEB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3435205D-F435-4D03-9266-52ED4FACAC7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Catalog.Service", "Play.Catalog.Service\Play.Catalog.Service.csproj", "{CCF9B65F-4671-4380-8953-66EAF0BE8A1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Common", "Play.Common\Play.Common.csproj", "{11A1A594-B26C-4B96-900E-862D13129E50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3CD2353A-562B-46C1-8A55-E32F37887B09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Play.Common", "Play.Common", "{2B12311B-0739-4CB5-B14B-2FD0A4319BC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,5 +30,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3435205D-F435-4D03-9266-52ED4FACAC7A} = {8958A496-65B5-4DBD-A1AB-331CFA39CFEB}
 		{CCF9B65F-4671-4380-8953-66EAF0BE8A1D} = {3435205D-F435-4D03-9266-52ED4FACAC7A}
+		{3CD2353A-562B-46C1-8A55-E32F37887B09} = {2B12311B-0739-4CB5-B14B-2FD0A4319BC1}
+		{11A1A594-B26C-4B96-900E-862D13129E50} = {3CD2353A-562B-46C1-8A55-E32F37887B09}
 	EndGlobalSection
 EndGlobal
