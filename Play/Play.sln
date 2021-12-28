@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Common", "Play.Common\Play.Common.csproj", "{11A1A594-B26C-4B96-900E-862D13129E50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Play.Catalog", "Play.Catalog", "{8958A496-65B5-4DBD-A1AB-331CFA39CFEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3435205D-F435-4D03-9266-52ED4FACAC7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play.Catalog.Service", "Play.Catalog.Service\Play.Catalog.Service.csproj", "{CCF9B65F-4671-4380-8953-66EAF0BE8A1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11A1A594-B26C-4B96-900E-862D13129E50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11A1A594-B26C-4B96-900E-862D13129E50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11A1A594-B26C-4B96-900E-862D13129E50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11A1A594-B26C-4B96-900E-862D13129E50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF9B65F-4671-4380-8953-66EAF0BE8A1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF9B65F-4671-4380-8953-66EAF0BE8A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF9B65F-4671-4380-8953-66EAF0BE8A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF9B65F-4671-4380-8953-66EAF0BE8A1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3435205D-F435-4D03-9266-52ED4FACAC7A} = {8958A496-65B5-4DBD-A1AB-331CFA39CFEB}
+		{CCF9B65F-4671-4380-8953-66EAF0BE8A1D} = {3435205D-F435-4D03-9266-52ED4FACAC7A}
+	EndGlobalSection
+EndGlobal
