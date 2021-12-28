@@ -12,18 +12,18 @@ namespace Play.Catalog.Service.Controllers
     [Route("items")]
     public class ItemsController : ControllerBase
     {
-        private readonly IItemsRepository _itemsRepository;
+        private readonly IRepository<Item> _repository;
 
-        public ItemsController(IItemsRepository itemsRepository)
+        public ItemsController(IRepository<Item> repository)
         {
-            _itemsRepository = itemsRepository;
+            _repository = repository;
         }
 
         // GET /items
         [HttpGet]
         public async Task<IEnumerable<ItemDto>> GetAsync()
         {
-            var items = (await _itemsRepository.GetAllAsync()).Select(item => item.AsDto());
+            var items = (await _repository.GetAllAsync()).Select(item => item.AsDto());
             return items;
         }
 
@@ -31,7 +31,7 @@ namespace Play.Catalog.Service.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ItemDto>> GetByIdAsync(Guid id)
         {
-            var item = await _itemsRepository.GetAsync(id);
+            var item = await _repository.GetAsync(id);
 
             if (item == null)
             {
@@ -53,7 +53,7 @@ namespace Play.Catalog.Service.Controllers
                 CreatedDate = DateTimeOffset.UtcNow
             };
 
-            await _itemsRepository.CreateAsync(item);
+            await _repository.CreateAsync(item);
             
             // ReSharper disable once Mvc.ActionNotResolved
             return CreatedAtAction(nameof(GetByIdAsync), new { id = item.Id }, item);
@@ -63,7 +63,7 @@ namespace Play.Catalog.Service.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync(Guid id, UpdateItemDto updateItemDto)
         {
-            var existingItem = await _itemsRepository.GetAsync(id);
+            var existingItem = await _repository.GetAsync(id);
 
             if (existingItem == null)
             {
@@ -74,7 +74,7 @@ namespace Play.Catalog.Service.Controllers
             existingItem.Description = updateItemDto.Description;
             existingItem.Price = updateItemDto.Price;
 
-            await _itemsRepository.UpdateAsync(existingItem);
+            await _repository.UpdateAsync(existingItem);
             
             return NoContent();
         }
@@ -83,14 +83,14 @@ namespace Play.Catalog.Service.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {
-            var item = await _itemsRepository.GetAsync(id);
+            var item = await _repository.GetAsync(id);
 
             if (item == null)
             {
                 return NotFound();
             }
 
-            await _itemsRepository.RemoveAsync(item.Id);
+            await _repository.RemoveAsync(item.Id);
             
             return NoContent();
         }
