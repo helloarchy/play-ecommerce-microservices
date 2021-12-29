@@ -32,7 +32,7 @@ namespace Play.Common.MongoDB
             return await _dbCollection.Find(filter).FirstOrDefaultAsync();
         }
 
-        public async Task<T> GetAsync(Guid id, Expression<Func<T, bool>> filter)
+        public async Task<T> GetAsync(Expression<Func<T, bool>> filter)
         {
             return await _dbCollection.Find(filter).FirstOrDefaultAsync();
         }
